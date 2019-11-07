@@ -17,6 +17,7 @@ namespace VertexCoverProblem
         }
 
 
+
         // Chose first vertex, connected to this one
         // if no edges found returns -1
         private int ChoseFirstEdge(int k)
