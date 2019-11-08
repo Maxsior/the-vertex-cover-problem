@@ -1,23 +1,34 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using VertexCoverProblem;
 
-public static class Program
+namespace VertexCoverProblem
 {
-	public static void Main(string[] args)
-	{
-        var graph = Reader.Read("data/LazySampleEasy.mis");
-
-        LazyAlg lazy = new LazyAlg(graph);
-
-        List<int> res = lazy.Solve();
-
-        foreach(int x in res)
+    public static class Program
+    {
+        public static void Main(string[] args)
         {
-            Console.WriteLine(x);
-        }
+            int n = 20;
+            for (int i = 1; i <= n; i++)
+            {
+                var graph = Reader.Read("data/" + i + ".mis");
+                var result = Greedy.Solve(graph);
+                Console.WriteLine(i + ": " + result.Count);
+            }
+            Console.ReadKey();
+          
+            var graph = Reader.Read("data/LazySampleEasy.mis");
 
-        Console.WriteLine();
-        Console.WriteLine(res.Count);
-	}
+            LazyAlg lazy = new LazyAlg(graph);
+
+            List<int> res = lazy.Solve();
+
+            foreach(int x in res)
+            {
+                Console.WriteLine(x);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine(res.Count);
+        }
+    }
 }
