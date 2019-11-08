@@ -5,40 +5,41 @@ namespace VertexCoverProblem
 {
     public static class Program
     {
-        public static void Main(string[] args)
+
+        public static void Print(List<int> vertexCover)
         {
-            var graph = Reader.Read("data/1.mis");
-            var explicitSolver = new ExplicitAlgorytm(graph);
-            var vertexCover = explicitSolver.Solve();
-            Console.Write("Минимальное вершинное покрытие: ");
+            // vertexCover.Sort();
+            Console.Write("Минимальное вершинное покрытие:");
             foreach (var v in vertexCover)
             {
-                Console.Write(v + " ");
+                Console.Write((v < 10 ? "  " : " ") + v);
             }
             Console.WriteLine();
+        }
 
-            int n = 20;
-            for (int i = 1; i <= n; i++)
-            {
-                var graph = Reader.Read("data/" + i + ".mis");
-                var result = Greedy.Solve(graph);
-                Console.WriteLine(i + ": " + result.Count);
-            }
-            Console.ReadKey();
+        public static void Main(string[] args)
+        {
+
+            var graph = Reader.Read("data/new.mis");
+
+            //// explicit ////
+
+            var explicitSolver = new ExplicitAlgorytm(graph);
+            var vertexCover = explicitSolver.Solve();
+            Print(vertexCover);
+            
+            //// greedy ////
+
+            var result = Greedy.Solve(graph);
+            Print(result);
           
-            var graph = Reader.Read("data/LazySampleEasy.mis");
-
+            //// lazy ////
+            
             LazyAlg lazy = new LazyAlg(graph);
-
             List<int> res = lazy.Solve();
+            Print(res);
 
-            foreach(int x in res)
-            {
-                Console.WriteLine(x);
-            }
-
-            Console.WriteLine();
-            Console.WriteLine(res.Count);
+            Console.ReadKey();
         }
     }
 }

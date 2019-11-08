@@ -51,8 +51,9 @@ namespace VertexCoverProblem
         }
 
         //решение
-        public static List<int> Solve(int [,] graph)
+        public static List<int> Solve(int [,] igraph)
         {
+            var graph = (int[,])igraph.Clone();
             List<int> result = new List<int>();
 
             int n = graph.GetLength(0);
