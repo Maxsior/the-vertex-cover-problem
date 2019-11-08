@@ -42,10 +42,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExplicitAlgorytm.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Reader.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitignore" />
     <None Include=".git\config" />
     <None Include=".git\description" />
     <None Include=".git\HEAD" />
@@ -79,6 +81,9 @@
     <None Include=".vs\VSWorkspaceState.json" />
     <None Include="data\1.mis">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="data\2.mis">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="README.md" />
   </ItemGroup>
