@@ -1,5 +1,4 @@
-﻿using System;
-
+using System;
 using System.Collections.Generic;
 
 namespace VertexCoverProblem
@@ -16,6 +15,20 @@ namespace VertexCoverProblem
                 Console.WriteLine(i + ": " + result.Count);
             }
             Console.ReadKey();
+          
+            var graph = Reader.Read("data/LazySampleEasy.mis");
+
+            LazyAlg lazy = new LazyAlg(graph);
+
+            List<int> res = lazy.Solve();
+
+            foreach(int x in res)
+            {
+                Console.WriteLine(x);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine(res.Count);
         }
     }
 }
