@@ -28,8 +28,7 @@ public static class Reader
                 int i = int.Parse(line[1]) - 1;
                 int j = int.Parse(line[2]) - 1;
 
-                graph[i, j] = 1;
-                graph[j, i] = 1;
+                graph[i, j] = graph[j, i] = 1;
             }
         }
         sr.Close();

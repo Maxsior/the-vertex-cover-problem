@@ -7,6 +7,16 @@ namespace VertexCoverProblem
     {
         public static void Main(string[] args)
         {
+            var graph = Reader.Read("data/1.mis");
+            var explicitSolver = new ExplicitAlgorytm(graph);
+            var vertexCover = explicitSolver.Solve();
+            Console.Write("Минимальное вершинное покрытие: ");
+            foreach (var v in vertexCover)
+            {
+                Console.Write(v + " ");
+            }
+            Console.WriteLine();
+
             int n = 20;
             for (int i = 1; i <= n; i++)
             {
