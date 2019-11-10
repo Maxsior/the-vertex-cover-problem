@@ -6,7 +6,7 @@ namespace VertexCoverProblem
     public static class Program
     {
 
-        public static void Print(List<int> vertexCover)
+        public static void Print(List<int> vertexCover, DateTime start)
         {
             // vertexCover.Sort();
             Console.Write("Минимальное вершинное покрытие:");
@@ -15,29 +15,39 @@ namespace VertexCoverProblem
                 Console.Write((v < 10 ? "  " : " ") + v);
             }
             Console.WriteLine();
+            Console.WriteLine(DateTime.Now - start);
+            Console.WriteLine();
         }
 
         public static void Main(string[] args)
         {
 
-            var graph = Reader.Read("data/new.mis");
+            var graph = Reader.Read("data/nn.mis");
 
             //// explicit ////
-
-            var explicitSolver = new ExplicitAlgorytm(graph);
-            var vertexCover = explicitSolver.Solve();
-            Print(vertexCover);
+            var start = DateTime.Now;
+            if (graph.GetLength(0) < 23)
+            {
+                var explicitSolver = new ExplicitAlgorytm(graph);
+                var vertexCover = explicitSolver.Solve();
+                Print(vertexCover, start);
+            }
+            else
+            {
+                Console.WriteLine("Точный алгортм упал\n");
+            }
             
+
             //// greedy ////
-
+            start = DateTime.Now;
             var result = Greedy.Solve(graph);
-            Print(result);
-          
+            Print(result, start);
+
             //// lazy ////
-            
+            start = DateTime.Now;
             LazyAlg lazy = new LazyAlg(graph);
             List<int> res = lazy.Solve();
-            Print(res);
+            Print(res, start);
 
             Console.ReadKey();
         }

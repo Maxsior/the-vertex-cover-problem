@@ -78,15 +78,6 @@ namespace VertexCoverProblem
         public List<int> Solve()
         {
             return CheckSubsets();
-            /*
-            for (var vc = 0; vc < graph.GetLength(0); vc++)
-            {
-                var verts = GetVerticesSet(vc);
-                for (var i = 0; i < graph.GetLength(0); i++)
-                {
-                    
-                }
-            }*/
             
         }
     }
